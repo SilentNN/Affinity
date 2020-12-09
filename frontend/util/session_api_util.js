@@ -6,13 +6,13 @@ export const register = user => $.ajax({
 
 export const login = user => $.ajax({
     method: 'POST',
-    url: 'api/sessions',
+    url: 'api/session',
     data: { user },
 });
 
 export const logout = () => $.ajax({
     method: 'DELETE',
-    url: 'api/sessions',
+    url: 'api/session',
 });
 
 export const updateUser = (id, user) => $.ajax({
