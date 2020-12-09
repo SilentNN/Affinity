@@ -1,5 +1,5 @@
 {
-  "name": "disarray",
+  "name": "affinity",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.12.9",

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './frontend/disarray.jsx',
+  entry: './frontend/affinity.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'

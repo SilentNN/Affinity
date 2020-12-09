@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = Actions.login;
   window.logout = Actions.logout;
 
-  ReactDOM.render(<h1>is disarray</h1>, root);
+  ReactDOM.render(<h1>is affinity</h1>, root);
 });
