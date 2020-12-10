@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import configureStore from './store/store';
+import Root from './components/root';
+import './icons/fa_library';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,6 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
 
   ReactDOM.render(
-    <h1>is affinity</h1>
-    , document.getElementById("root"));
+    <Root store={store} />,
+    document.getElementById("root"));
 });
