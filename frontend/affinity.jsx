@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import * as Actions from './actions/session_actions';
+import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root");
 
-  window.register = Actions.register;
-  window.login = Actions.login;
-  window.logout = Actions.logout;
+  const store = configureStore();
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
-  ReactDOM.render(<h1>is affinity</h1>, root);
+  ReactDOM.render(
+    <h1>is affinity</h1>
+    , document.getElementById("root"));
 });
