@@ -6,7 +6,8 @@ export default (
 
         switch (action.type) {
             case RECEIVE_CURRENT_USER:
-                return {currentUserId: action.currentUser.id}
+                let [user] = Object.values(action.currentUser);
+                return {currentUserId: user.id}
             case LOGOUT_CURRENT_USER:
                 return {currentUserId: null};
             default:

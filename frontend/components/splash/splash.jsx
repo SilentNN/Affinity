@@ -13,8 +13,8 @@ export default class Splash extends React.Component {
         return (
             <div className='splash-container'>
                 <nav className="splash-nav">
-                    <Link to="/" className='splash-nav-logo'>
-                        Affinity Logo Image (just pretend okay)
+                    <Link to="/" className='affinity-nav-logo'>
+                        <img src={window.affinityLogoUrl} alt=""/>
                     </Link>
 
                     <ul className="splash-nav-right">

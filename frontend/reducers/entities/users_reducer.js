@@ -5,7 +5,8 @@ export default (
         const nextState = {...oldState};
         switch (action.type) {
             case RECEIVE_CURRENT_USER:
-                return {...nextState, [action.currentUser.id]: action.currentUser};
+                let [user] = Object.values(action.currentUser);
+                return {...nextState, [user.id]: user};
             default:
                 return oldState;
         }

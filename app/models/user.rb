@@ -2,9 +2,10 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true, uniqueness: true
     validates :password_digest, presence: true
+    validates :discriminator, presence: true
     validates :password, length: {in: 6..20}, allow_nil: true
 
-    before_validation :ensure_session_token
+    before_validation :ensure_session_token, :ensure_discriminator
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
@@ -33,5 +34,17 @@ class User < ApplicationRecord
 
     def ensure_session_token
         self.session_token ||= SecureRandom.base64
+    end
+
+    def ensure_discriminator
+        self.discriminator ||= generate_discriminator
+    end
+    
+    def generate_discriminator
+        discriminator = rand(1...10000)
+        unless User.where(username: self.username).where(discriminator: discriminator).empty?
+            generate_discriminator
+        end
+        discriminator
     end
 end

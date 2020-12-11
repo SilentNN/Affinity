@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
         path={path}
         exact={exact}
         render={props =>
-            !loggedIn ? <Component {...props} /> : <Redirect to="/" />
+            loggedIn ? <Redirect to="/channels/@me" /> : <Component {...props} />
         }
     />
 );
@@ -23,7 +23,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 );
 
 const mSTP = state => {
-    return { loggedIn: Boolean(state.session.id) };
+    return { loggedIn: Boolean(state.session.currentUserId) };
 };
 
 export const AuthRoute = withRouter(

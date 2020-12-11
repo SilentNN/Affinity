@@ -6,6 +6,7 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import Splash from './splash/splash_container';
 import RegisterFormContainer from './session_form/register_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import HomeContainer from './home/home'
 
 export default (
     () => (
@@ -13,8 +14,8 @@ export default (
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/register" component={RegisterFormContainer} />
-            {/* <ProtectedRoute path="/channels/@me" component={Home} />
-            <ProtectedRoute
+            <ProtectedRoute path="/channels/@me" component={HomeContainer} />
+            {/* <ProtectedRoute
                 path="/channels/:serverId/:channelId"
                 component={Server}
             /> */}

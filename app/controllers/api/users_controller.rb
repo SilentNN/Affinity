@@ -5,8 +5,7 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :index
         else
-            flash.now[:errors] = @user.errors.full_messages
-            render :new
+            render json: @user.errors.full_messages, status: 422
         end
     end
 
@@ -40,6 +39,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :username)
     end
 end

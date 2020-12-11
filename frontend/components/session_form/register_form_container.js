@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { register } from '../../actions/session_actions';
+import { register, clearSessionErrors } from '../../actions/session_actions';
 import RegisterForm from './register_form';
 
 const mSTP = ({ errors }) => ({
@@ -10,6 +10,7 @@ const mSTP = ({ errors }) => ({
 const mDTP = dispatch => {
     return {
         processForm: (user) => dispatch(register(user)),
+        clearSessionErrors: () => dispatch(clearSessionErrors()),
     };
 };
 
