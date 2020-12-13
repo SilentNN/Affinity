@@ -70,72 +70,78 @@ export default class SessionForm extends React.Component {
         const passwordError = this.props.errors.find((error) => error.match(/assword/));
 
         return (
-        <div className="register-form-container">
-            <form onSubmit={this.handleSubmit} className="register-form-box">
+        <div className="session-form-container">
+            <form onSubmit={this.handleSubmit} className="session-form">
                 
-                <Link to="/" className='affinity-nav-logo'>
-                    <img src={window.affinityLogoUrl} alt=""/>
-                </Link>
-                
-                <h2>
-                    Create an account
-                </h2>
-
-                <div className="register-form">
-                    <label className={this.fieldsFilled.email || !emailError ? '' : 'field-error'}>
-                        Email
-                        {!this.fieldsFilled.email && (
-                            <span className='field-error-span'> - This field is required</span>
-                        )}
-                        {emailError && (
-                            <span className='field-error-span'> - {emailError}</span>
-                        )}
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            className="register-input"
-                        />
-                    </label>
-
-                    <br/>
-                    <label className={this.fieldsFilled.username || !usernameError ? '' : 'field-error'}>
-                        Username
-                        {!this.fieldsFilled.username && (
-                            <span className='field-error-span'> - This field is required</span>
-                        )}
-                        {usernameError && (
-                            <span className='field-error-span'> - {usernameError}</span>
-                        )}
-                        <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            className="register-input"
-                        />
-                    </label>
-
-                    <br/>
-                    <label className={this.fieldsFilled.password || !passwordError ? '' : 'field-error'}>
-                        Password
-                        {!this.fieldsFilled.password && (
-                            <span className='field-error-span'> - This field is required</span>
-                        )}
-                        {passwordError && (
-                            <span className='field-error-span'> - {passwordError}</span>
-                        )}
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            className="register-input"
-                        />
-                    </label>
-
-                    <br/>
-                    <input className="session-submit" type="submit" value='Continue' />
-                    
-                    <p>
-                        <Link to='/login'>Already have an account?</Link>
-                    </p>
-                    
+                <div className='main-register-form'>
+                    <h2>
+                        Create an account
+                    </h2>
+    
+                    <div className="session-form-inputs">
+                        <label className={this.fieldsFilled.email && !emailError ? '' : 'field-error'}>
+                            <h5>
+                                Email
+                                {!this.fieldsFilled.email && (
+                                    <span className='field-error-span'> - This field is required</span>
+                                )}
+                                {emailError && (
+                                    <span className='field-error-span'> - {emailError}</span>
+                                )}
+                            </h5>
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                className="session-input"
+                            />
+                        </label>
+    
+                        
+                        <label className={this.fieldsFilled.username && !usernameError ? '' : 'field-error'}>
+                            <h5>
+                                Username
+                                {!this.fieldsFilled.username && (
+                                    <span className='field-error-span'> - This field is required</span>
+                                )}
+                                {usernameError && (
+                                    <span className='field-error-span'> - {usernameError}</span>
+                                )}
+                            </h5>
+                            <input type="text"
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                                className="session-input"
+                            />
+                        </label>
+    
+                        
+                        <label className={this.fieldsFilled.password && !passwordError ? '' : 'field-error'}>
+                            <h5>
+                                Password
+                                {!this.fieldsFilled.password && (
+                                    <span className='field-error-span'> - This field is required</span>
+                                )}
+                                {passwordError && (
+                                    <span className='field-error-span'> - {passwordError}</span>
+                                )}
+                            </h5>
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                className="session-input"
+                            />
+                        </label>
+    
+                        
+                        <button className="session-submit" type="submit">Continue</button>
+                        
+                        <Link to='/login' className='session-link'>Already have an account?</Link>
+    
+                        <section className='session-footnote'>
+                            By registering, you agree to Affinity's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                        </section>
+                        
+                    </div>
                 </div>
             </form>
         </div>

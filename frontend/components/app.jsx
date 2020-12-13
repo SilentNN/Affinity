@@ -4,16 +4,14 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
 import Splash from './splash/splash_container';
-import RegisterFormContainer from './session_form/register_form_container';
-import LogInFormContainer from './session_form/login_form_container';
+import SessionContainer from './session_form/session_container';
 import HomeContainer from './home/home'
 
 export default (
     () => (
-        <div className='app'>
+        <div className='app theme-dark'>
         <Switch>
-            <AuthRoute exact path="/login" component={LogInFormContainer} />
-            <AuthRoute exact path="/register" component={RegisterFormContainer} />
+            <AuthRoute exact path={['/login', '/register']} component={SessionContainer} />
             <ProtectedRoute path="/channels/@me" component={HomeContainer} />
             {/* <ProtectedRoute
                 path="/channels/:serverId/:channelId"

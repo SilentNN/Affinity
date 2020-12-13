@@ -67,68 +67,78 @@ export default class SessionForm extends React.Component {
         const loginError = this.props.errors.find((error) => error.match(/[Ll]ogin or password/));
     
         return (
-        <div className="login-form-container">
-            <Link to="/" className='affinity-nav-logo'>
-                <img src={window.affinityLogoUrl} alt=""/>
-            </Link>
+        <div className="session-form-container">
 
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-                <h2>
-                    Welcome back!
-                </h2>
-
-                <h3>
-                    We're so excited to see you again!
-                </h3>
-
-                <div className="login-form">
-                    <label className={this.fieldsFilled.email || !loginError ? '' : 'field-error'}>
-                        EMAIL
-                        {!this.fieldsFilled.email && (
-                            <span className='field-error-span'> - This field is required</span>
-                        )}
-                        {loginError && (
-                            <span className='field-error-span'> - {loginError}</span>
-                        )}
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            className="login-input"
-                        />
-                    </label>
-
-                    <br/>
-                    <label className={this.fieldsFilled.password || !loginError ? '' : 'field-error'}>
-                        PASSWORD
-                        {!this.fieldsFilled.password && (
-                            <span className='field-error-span'> - This field is required</span>
-                        )}
-                        {loginError && (
-                            <span className='field-error-span'> - {loginError}</span>
-                        )}
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            className="login-input"
-                        />
-                    </label>
-
-                    <br/>
-                    <input className="session-submit" type="submit" value='Login' />
+            <form onSubmit={this.handleSubmit} className="session-form expanded">
+                <div className='main-login-form'>
+                    <h2>
+                        Welcome back!
+                    </h2>
+    
+                    <h3>
+                        We're so excited to see you again!
+                    </h3>
+    
+                    <div className="session-form-inputs">
+                        <label className={this.fieldsFilled.email && !loginError ? '' : 'field-error'}>
+                            <h5>
+                                EMAIL
+                                {!this.fieldsFilled.email && (
+                                    <span className='field-error-span'> - This field is required</span>
+                                )}
+                                {loginError && (
+                                    <span className='field-error-span'> - {loginError}</span>
+                                )}
+                            </h5>
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                className="login-input"
+                            />
+                        </label>
+    
+                        
+                        <label className={this.fieldsFilled.password && !loginError ? '' : 'field-error'}>
+                            <h5>
+                                PASSWORD
+                                {!this.fieldsFilled.password && (
+                                    <span className='field-error-span'> - This field is required</span>
+                                )}
+                                {loginError && (
+                                    <span className='field-error-span'> - {loginError}</span>
+                                )}
+                            </h5>
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                className="login-input"
+                            />
+                        </label>
+                        
+                        <button className="session-submit" type="submit" value='Login' >Login</button>
+                    </div>
+    
+                    <section className='session-link'>
+                        Need an account? <Link to='/register'>Register</Link>
+                    </section>
                 </div>
 
-                <p>
-                    Need an account? <Link to='/register'>Register</Link>
-                </p>
                 <div className='demo'>
-                    <h2>
-                        Use a Demo Account
-                    </h2>
-                    <p>
+                    <Link to='/channels/@me' onClick={this.loginDemo.bind(this)}>
+                        <div className='demo-icon'>
+                            demo
+                        </div>
+                    </Link>
+                    <Link to='/channels/@me' onClick={this.loginDemo.bind(this)}>
+                        <h2>
+                            Use a Demo Account
+                        </h2>
+                    </Link>
+                    <h3>
                         Login with a <Link to='/channels/@me' onClick={this.loginDemo.bind(this)}>
                             demo account
                         </Link> to try Affinity instantly.
-                    </p>
+                    </h3>
                 </div>
             </form>
         </div>
