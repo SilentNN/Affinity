@@ -40,7 +40,7 @@ export default class Splash extends React.Component {
                                 className="splash-nav-link login"
                             >
                                 <button type="button" className="splash-nav-btn">
-                                    {loggedIn ? "Open Discord" : "Login"}
+                                    {loggedIn ? "Open Affinity" : "Login"}
                                 </button>
                             </Link>
     
