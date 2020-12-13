@@ -128,8 +128,11 @@
     font-weight: 500;
     line-height: 16px;
     user-select: none;
-    cursor: pointer;
     text-align: left;
+
+    a {
+        cursor: pointer;
+    }
 }
 
 .session-footnote {
