@@ -43,7 +43,7 @@
     align-items: center;
 }
 
-.splash-container button {
+.button-large, .button-medium {
     line-height: 24px;
     cursor: pointer;
     font-weight: 500;
@@ -53,9 +53,9 @@
     transition-property: background-color,color,box-shadow;
     transition-duration: .2s;
     transition-timing-function: ease-in-out;
-    background-color: #fff;
-    color: #23272a;
+}
 
+.button-large {
     border-radius: 28px;
     font-size: 20px;
     padding: 16px 32px;
@@ -63,26 +63,34 @@
     margin-top: 24px;
 }
 
-.splash-container button:hover {
+.hero-button-link:hover {
+    text-decoration: none;
+}
+
+.hero-button-link:not(:last-child) {
+    margin-right: 24px;
+}
+
+.button-white {
+    background-color: #fff;
+    color: #23272a;
+}
+
+.button-white:hover {
     box-shadow: 0 8px 15px rgba(0,0,0,.2);
     color: #7289da;
 }
 
-.hero-buttons button:first-child {
-    margin-right: 24px;
-}
-
-.splash-container .button-dark {
+.button-dark {
     background-color: #23272a;
     color: white;
 }
 
-.splash-container .button-dark:hover {
+.button-dark:hover {
     background-color: #36393f;
-    color: white;
 }
 
-.splash-nav button, .footer button {
+.button-medium {
     border-radius: 40px;
     font-size: 14px;
     padding: 7px 16px;

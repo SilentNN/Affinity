@@ -47,6 +47,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-button {
-	border: 0;
+button, input {
+	outline: none;
+	border: none;
 }

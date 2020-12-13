@@ -39,7 +39,7 @@ export default class Splash extends React.Component {
                                 to={loggedIn ? "/channels/@me" : "/login"}
                                 className="splash-nav-link login"
                             >
-                                <button type="button" className="splash-nav-btn">
+                                <button className="button-white button-medium login">
                                     {loggedIn ? "Open Affinity" : "Login"}
                                 </button>
                             </Link>
@@ -59,11 +59,11 @@ export default class Splash extends React.Component {
                             </div>
     
                             <div className='hero-buttons'>
-                                <Link to='/channels/@me' onClick={this.loginDemo.bind(this)}>
-                                    <button>Demo</button>
+                                <Link to='/channels/@me' className='hero-button-link' onClick={this.loginDemo.bind(this)}>
+                                    <button className='button-white button-large'>Demo</button>
                                 </Link>
-                                <Link to='/channels/@me'>
-                                    <button className='button-dark'>Open Affinity in your browser</button>
+                                <Link className='hero-button-link' to='/channels/@me'>
+                                    <button className='button-dark button-large'>Open Affinity in your browser</button>
                                 </Link>
                             </div>
                         </div>
