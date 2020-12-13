@@ -7,6 +7,13 @@ export default class Splash extends React.Component {
         super(props);
     }
 
+    loginDemo() {
+        return this.props.login({
+            email: 'demo@lknaffinity.com',
+            password: 'demopassword',
+        })
+    }
+
     render () {
         const {loggedIn} = this.props;
 
@@ -52,8 +59,12 @@ export default class Splash extends React.Component {
                             </div>
     
                             <div className='hero-buttons'>
-                                <button>Demo</button>
-                                <button className='button-dark'>Open Affinity in your browser</button>
+                                <Link to='/channels/@me' onClick={this.loginDemo.bind(this)}>
+                                    <button>Demo</button>
+                                </Link>
+                                <Link to='/channels/@me'>
+                                    <button className='button-dark'>Open Affinity in your browser</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
